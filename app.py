@@ -42,16 +42,20 @@ st.divider()
 
 def reset_input():
     st.session_state["user_input"] = ""
-    
+
 # 専門家タイプ選択
 selected_expert = st.radio(
     "専門家を選択してください。",
     ["AIプログラマー", "ITコンサルティング"],
+    key="expert_select",
     on_change=reset_input
 )
 
 # 入力フォーム（1つ）
-user_input = st.text_input("問い合わせたい内容を入力してください。")
+user_input = st.text_input(
+    "問い合わせたい内容を入力してください。",
+    key="user_input"
+)
 
 # 実行ボタン
 if st.button("実行"):
